@@ -40,6 +40,7 @@ _unit spawn
 
 				if !((toLower _anim) in ["ainjppnemstpsnonwrfldnon","unconscious"]) then
 				{
+					systemChat format ["animationState = %1", _anim];
 					[_unit, "AinjPpneMstpSnonWrflDnon"] call switchMoveGlobal;
 				};
 			}
