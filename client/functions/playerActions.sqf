@@ -8,11 +8,6 @@
 
 { [player, _x] call fn_addManagedAction } forEach
 [
-
-	["<t color='#00FF00'><img image='client\icons\r3f_lock.paa'/> Lock Vehicle</t>", "client\lockSystem\vehicle_lock.sqf", [], 1,false,false,"","(cursorTarget isKindOf 'AllVehicles') && {[cursorTarget] call canVehicleLock && {(cursorTarget getVariable ['A3W_missionVehicle',false]) || (cursorTarget getVariable ['A3W_purchasedVehicle',false])}}"],
-	["<img image='client\icons\r3f_lock.paa'/> Lock Vehicle", "client\lockSystem\vehicle_lock.sqf", [], 1,false,false,"","(cursorTarget isKindOf 'AllVehicles') && {[cursorTarget] call canVehicleLock && {!(cursorTarget getVariable ['A3W_missionVehicle',false]) && !(cursorTarget getVariable ['A3W_purchasedVehicle',false])}}"],
-	["<img image='client\icons\r3f_unlock.paa'/> Unlock Vehicle", "client\lockSystem\vehicle_unlock.sqf", [], 1,false,false,"","(cursorTarget isKindOf 'AllVehicles') && {[cursorTarget] call canVehicleUnlock}"],
-  
 	["Holster Weapon", { player action ["SwitchWeapon", player, player, 100] }, [], -11, false, false, "", "vehicle player == player && currentWeapon player != ''"],
 	["Unholster Primary Weapon", { player action ["SwitchWeapon", player, player, 0] }, [], -11, false, false, "", "vehicle player == player && currentWeapon player == '' && primaryWeapon player != ''"],
 
@@ -49,9 +44,11 @@ if !(288520 in getDLCs 1) then
 
 // Morehehe...
 if !(304380 in getDLCs 1) then 
+
 {
 	[player, ["<img image='client\icons\driver.paa'/> Get in as Pilot", "client\actions\moveInDriver.sqf", [], 6, true, true, "", "(locked cursorTarget != 2) && ((cursorTarget isKindOf 'B_Heli_Transport_03_base_F') or (cursorTarget isKindOf 'Heli_Transport_04_base_F')) && player distance cursorTarget < 10 && isNull driver cursorTarget"]] call fn_addManagedAction;
 	[player, ["<img image='client\icons\gunner.paa'/> Get in as Copilot", "client\actions\moveInTurret.sqf", [0], 6, true, true, "", "(locked cursorTarget != 2) && ((cursorTarget isKindOf 'B_Heli_Transport_03_base_F') or (cursorTarget isKindOf 'Heli_Transport_04_base_F')) && player distance cursorTarget < 10 && isNull (cursorTarget turretUnit [0])"]] call fn_addManagedAction;
 	[player, ["<img image='client\icons\gunner.paa'/> Get in as Left door gunner", "client\actions\moveInTurret.sqf", [1], 6, true, true, "", "(locked cursorTarget != 2) && ((cursorTarget isKindOf 'B_Heli_Transport_03_base_F')) && player distance cursorTarget < 10 && isNull (cursorTarget turretUnit [1])"]] call fn_addManagedAction;
 	[player, ["<img image='client\icons\gunner.paa'/> Get in as Right door gunner", "client\actions\moveInTurret.sqf", [2], 6, true, true, "", "(locked cursorTarget != 2) && ((cursorTarget isKindOf 'B_Heli_Transport_03_base_F')) && player distance cursorTarget < 10 && isNull (cursorTarget turretUnit [2])"]] call fn_addManagedAction;
+
 };
