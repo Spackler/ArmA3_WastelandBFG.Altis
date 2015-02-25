@@ -43,5 +43,4 @@ player selectWeapon "srifle_EBR_F";
 
 player addMagazines ["Titan_AA",2];
 player addWeapon "launch_Titan_F";
-player setObjectTextureGlobal [0, "client\images\vehicleTextures\camo_pank.jpg"];
 };

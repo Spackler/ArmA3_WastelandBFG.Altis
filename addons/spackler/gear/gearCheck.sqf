@@ -41,7 +41,7 @@ switch (true) do
    {
 		player execVM "addons\spackler\gear\gearLevel5.sqf"; 
 		sleep 5;
-		hint "Pink Panther gear loaded";
+		hint "Admin gear loaded";
    };
    
     case  (_uid in call gearLevel6) :
