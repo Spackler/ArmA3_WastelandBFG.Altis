@@ -2,6 +2,9 @@ diag_log "vFunctions.sqf loading ...";
 
 #include "macro.h"
 
+
+
+
 v_restoreVehicle = {
   //diag_log format["%1 call v_restoreVehicle", _this];
   ARGVX3(0,_data_pair,[]);
@@ -11,6 +14,7 @@ v_restoreVehicle = {
   _this = _data_pair;
   ARGVX3(0,_vehicle_key,"");
   ARGVX2(1,_vehicle_hash);
+
 
 
   def(_vehicle_data);
@@ -109,8 +113,11 @@ v_restoreVehicle = {
   else {
     def(_special);
     _special = if (_is_flying) then {"FLY"} else {"CAN_COLLIDE"};
+
+
     _obj = createVehicle [_class, _pos, [], 0, _special];
   };
+
 
   if (!isOBJECT(_obj)) exitWith {
     diag_log format["Could not create vehicle of class: %1", _class];
@@ -128,6 +135,7 @@ v_restoreVehicle = {
   if (!isARRAY(_create_array)) then {
     _obj setPosWorld ATLtoASL _pos;
   };
+
 
   if (isARRAY(_dir)) then {
     _obj setVectorDirAndUp _dir;
@@ -153,6 +161,9 @@ v_restoreVehicle = {
 
   if (isSCALAR(_lock_state)) then {
     _obj lock _lock_state;
+
+
+
     _obj setVariable ["R3F_LOG_disabled", (_lock_state > 1) , true];
   };
 
@@ -244,6 +255,7 @@ v_restoreVehicle = {
 };
 
 
+
 tracked_vehicles_list = [];
 
 v_getTrackedVehicleIndex = {
@@ -262,6 +274,9 @@ v_trackVehicle = {
   //diag_log format["%1 is being added to the tracked list", _object];
   tracked_vehicles_list pushBack _object;
 };
+
+//event handlers for object tracking, and untracking
+"trackVehicle" addPublicVariableEventHandler { [_this select 1] call v_trackVehicle;};
 
 v_untrackVehicle = {
   private["_index","_object"];
@@ -478,8 +493,16 @@ v_getSavePosition = {
   _pos = ASLtoATL getPosWorld _obj;
   _pos set [2, (_pos select 2) + 0.3];
 
-  if ([_obj] call sh_isUAV_UGV) exitWith {_pos}; //no special processing for UAVs
-  if (isTouchingGround _obj) exitWith {_pos}; //directly in contact with ground, or on a roof
+ def(_on_ground);
+  _on_ground = isTouchingGround _obj;
+
+  def(_flying);
+  _flying = [_obj] call sh_isFlying;
+
+  //diag_log format["_flying = %1, _on_ground = %2", _flying, _on_ground];
+
+  if ([_obj] call sh_isUAV && {_flying}) exitWith {_pos}; //save flying UAVs as-is
+  if (_on_ground) exitWith {_pos}; //directly in contact with ground, or on a roof
   if ((getPos _obj) select 2 < 0.5) exitWith {_pos}; //FIXME: not exactly sure what this one is for
   if ((getPosASL _obj) select 2 < 0.5) exitWith {_pos}; //underwater
 
@@ -569,6 +592,7 @@ v_addSaveVehicle = {
   
   def(_result);
   _result = [
+
     ["Class", _class],
     ["Position", _pos],
     ["Direction", _dir],
@@ -590,6 +614,7 @@ v_addSaveVehicle = {
     ["Hitpoints", _hitPoints],
     ["LockState", _lock_state]
   ];
+
 
   _result = if (_hashify) then {_result call sock_hash} else {_result};
   _list pushBack [_objName, _result];
