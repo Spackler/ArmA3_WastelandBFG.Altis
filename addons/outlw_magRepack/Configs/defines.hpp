@@ -111,7 +111,7 @@ class outlw_MR_RscText
 	style = 0;
 	shadow = 1;
 	colorShadow[] = {0,0,0,0.5};
-	font = "PuristaMedium";
+	font = "TahomaB";
 	SizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	linespacing = 1;
 };
@@ -124,7 +124,7 @@ class outlw_MR_RscStructuredText
 	colorText[] = {1,1,1,1};
 	class Attributes
 	{
-		font = "PuristaMedium";
+		font = "TahomaB";
 		color = "#ffffff";
 		align = "left";
 		shadow = 1;
@@ -191,7 +191,7 @@ class outlw_MR_RscListBox
 		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
 	};
 	style = 16;
-	font = "PuristaMedium";
+	font = "TahomaB";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	shadow = 0;
 	colorShadow[] = {0,0,0,0.5};
@@ -213,7 +213,7 @@ class outlw_MR_RscActiveText
 	soundEnter[] = {"",0.1,1};
 	soundEscape[] = {"",0.1,1};
 	soundPush[] = {"",0.1,1};
-	font = "PuristaMedium";
+	font = "TahomaB";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 };
 class outlw_MR_IGUIBack
@@ -223,7 +223,7 @@ class outlw_MR_IGUIBack
 	style = 128;
 	text = "";
 	colorText[] = {0,0,0,0};
-	font = "PuristaMedium";
+	font = "TahomaB";
 	sizeEx = 0;
 	shadow = 0;
 	x = 0.1;
@@ -285,7 +285,7 @@ class outlw_MR_RscButtonMenu
 	};
 	class Attributes
 	{
-		font = "PuristaLight";
+		font = "TahomaB";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "false";
@@ -410,10 +410,6 @@ class outlw_MR_RscCombo
 	color[] = {1,1,1,1};
 	colorActive[] = {1,0,0,1};
 	colorDisabled[] = {1,1,1,0.25};
-	font = "PuristaMedium";
+	font = "TahomaB";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 };
-
-
-
-
