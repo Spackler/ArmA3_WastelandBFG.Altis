@@ -2,9 +2,6 @@ diag_log "vFunctions.sqf loading ...";
 
 #include "macro.h"
 
-
-
-
 v_restoreVehicle = {
   //diag_log format["%1 call v_restoreVehicle", _this];
   ARGVX3(0,_data_pair,[]);
@@ -14,8 +11,6 @@ v_restoreVehicle = {
   _this = _data_pair;
   ARGVX3(0,_vehicle_key,"");
   ARGVX2(1,_vehicle_hash);
-
-
 
   def(_vehicle_data);
   if (isCODE(_vehicle_hash)) then {
@@ -113,11 +108,8 @@ v_restoreVehicle = {
   else {
     def(_special);
     _special = if (_is_flying) then {"FLY"} else {"CAN_COLLIDE"};
-
-
     _obj = createVehicle [_class, _pos, [], 0, _special];
   };
-
 
   if (!isOBJECT(_obj)) exitWith {
     diag_log format["Could not create vehicle of class: %1", _class];
@@ -135,7 +127,6 @@ v_restoreVehicle = {
   if (!isARRAY(_create_array)) then {
     _obj setPosWorld ATLtoASL _pos;
   };
-
 
   if (isARRAY(_dir)) then {
     _obj setVectorDirAndUp _dir;
@@ -161,9 +152,6 @@ v_restoreVehicle = {
 
   if (isSCALAR(_lock_state)) then {
     _obj lock _lock_state;
-
-
-
     _obj setVariable ["R3F_LOG_disabled", (_lock_state > 1) , true];
   };
 
@@ -253,8 +241,6 @@ v_restoreVehicle = {
 
   _obj
 };
-
-
 
 tracked_vehicles_list = [];
 
@@ -592,7 +578,6 @@ v_addSaveVehicle = {
   
   def(_result);
   _result = [
-
     ["Class", _class],
     ["Position", _pos],
     ["Direction", _dir],
@@ -614,7 +599,6 @@ v_addSaveVehicle = {
     ["Hitpoints", _hitPoints],
     ["LockState", _lock_state]
   ];
-
 
   _result = if (_hashify) then {_result call sock_hash} else {_result};
   _list pushBack [_objName, _result];
