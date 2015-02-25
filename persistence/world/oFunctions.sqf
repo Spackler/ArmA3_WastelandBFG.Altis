@@ -659,20 +659,6 @@ o_saveAllObjects = {
   init(_start_time, diag_tickTime);
   init(_last_save, diag_tickTime);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   def(_all_objects);
   _all_objects = tracked_objects_list + allMines;
 
