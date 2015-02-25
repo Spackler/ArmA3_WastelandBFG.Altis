@@ -294,7 +294,7 @@ o_restoreObject = {
     ARGVX3(1,_allowDamage,false);
     //delay the allow damage to allow the box to settle
     sleep 5;
-  _obj setVariable ["allowDamage", _allowDamage,true];
+    _obj setVariable ["allowDamage", _allowDamage];
     _obj allowDamage _allowDamage;
   };
 
@@ -352,7 +352,7 @@ o_restoreObject = {
   };
 
   //AddAi to vehicle
-  if ([_obj] call sh_isUAV_UGV) then {
+  if ([_obj] call sh_isUAV) then {
     createVehicleCrew _obj;
   };
 
@@ -378,7 +378,7 @@ o_saveList = [];
   if ((o_saveList find _obj) >= 0) exitWith {};
   
   o_saveList pushBack _obj;
-};} forEach [objectList, call genObjectsArray];
+};} forEach [objectList, call genObjectsArray, minesList];
 
 
 o_isInSaveList = {
@@ -452,23 +452,6 @@ o_fillVariables = {
   _r3fSide = _obj getVariable "R3F_Side";
   if (!isNil "_r3fSide" && {typeName _r3fSide == typeName sideUnknown}) then {
     _variables pushBack ["R3F_Side", str _r3fSide];
-  };
-
-  def(_password);
-  if (_obj isKindOf "Building") then {
-    _doorsAmount = [_obj] call fn_getDoorsAmount;
-    
-    for "_i" from 1 to _doorsAmount do {
-      _doorState = _obj getVariable [format ["bis_disabled_Door_%1",_i],0];
-      if ((_doorState==1)) then {
-        _variables pushBack [format ["bis_disabled_Door_%1",_i],_doorState];
-      };
-    };
-    
-    _password = _obj getVariable "password";
-    if (!(isNil "_password")) then {
-      _variables pushBack ["password", _password];
-    };
   };
 
   _variables pushBack ["objectLocked", _obj getVariable "objectLocked"];
@@ -676,22 +659,22 @@ o_saveAllObjects = {
   init(_start_time, diag_tickTime);
   init(_last_save, diag_tickTime);
 
-  init(_allowedMines,[]);
-  
-  if (isNil "unsaveableArray") then {
-    unsaveableArray=[];
-  };
-  
-  {
-    if (!(_x in unsaveableArray)) then {
-      _allowedMines pushBack _x;
-    };
-  } forEach allMines;
-  
-  //diag_log format ["_allowedMines: %1", _allowedMines];
-  
-  private["_all_objects"];
-  _all_objects = tracked_objects_list + _allowedMines;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  def(_all_objects);
+  _all_objects = tracked_objects_list + allMines;
 
   {
     if (!isNil{[_request, _x] call o_addSaveObject}) then {
