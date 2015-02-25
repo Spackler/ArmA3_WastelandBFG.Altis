@@ -100,18 +100,6 @@ switch (true) do
 			["You've taken out your earplugs.", 5] call mf_notify_client;
 		};
 	};
-  
-  //Lock/Unlock by hotkey
-  //Ctrl + F
-  case (_ctrl && {(_key == 33)}) : 
-  {
-    if ((cursorTarget isKindOf 'AllVehicles') && {[cursorTarget] call canVehicleLock}) then {
-      [] execVM "client\lockSystem\vehicle_lock.sqf";
-    };
-    if ((cursorTarget isKindOf 'AllVehicles') && {[cursorTarget] call canVehicleUnlock}) then {
-      [] execVM "client\lockSystem\vehicle_unlock.sqf";
-    };
-  };
 };
 
 _handled
