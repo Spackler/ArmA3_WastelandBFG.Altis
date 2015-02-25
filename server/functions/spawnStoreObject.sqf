@@ -166,6 +166,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 				_safePos = _this select 1;
 				_marker = _this select 2;
 
+
 				//_isDamageable = !(_object isKindOf "ReammoBox_F"); //False if NOT Box
 				_isDamageable = ({_object isKindOf _x} count ["AllVehicles"] > 0); //True if IN list
 
@@ -178,7 +179,16 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 					_object setPosATL [_safePos select 0, _safePos select 1, 0.05];
 					_object setVelocity [0,0,0.01];
 					// _object spawn cleanVehicleWreck;
+
+
+
+
+
 					_object setVariable ["A3W_purchasedVehicle", true, true];
+
+
+
+
 				};
 
 				if (_object isKindOf "Plane") then
@@ -230,6 +240,12 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 					case ({_object isKindOf _x} count ["B_Truck_01_Repair_F", "O_Truck_02_box_F", "O_Truck_03_repair_F", "I_Truck_02_box_F"] > 0):
 					{
 						_object setRepairCargo 25;
+					};
+
+					case ({_object isKindOf _x} count ["B_UAV_02_F", "O_UAV_02_F", "I_UAV_02_F"] > 0):
+					{
+						_object removeMagazineTurret ["6Rnd_LG_scalpel",[0]];
+						_object addMagazineTurret ["2Rnd_LG_scalpel",[0]];
 					};
 				};
 
