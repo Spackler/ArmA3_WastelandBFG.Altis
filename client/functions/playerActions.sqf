@@ -8,10 +8,10 @@
 
 { [player, _x] call fn_addManagedAction } forEach
 [
-	["Holster Weapon", { player action ["SwitchWeapon", player, player, 100] }, [], -11, false, false, "", "vehicle player == player && currentWeapon player != ''"],
-	["Unholster Primary Weapon", { player action ["SwitchWeapon", player, player, 0] }, [], -11, false, false, "", "vehicle player == player && currentWeapon player == '' && primaryWeapon player != ''"],
+	["Holster Weapon", { player action ["SwitchWeapon", player, player, 100] }, [], -97, false, false, "", "vehicle player == player && currentWeapon player != ''"],
+	["Unholster Primary Weapon", { player action ["SwitchWeapon", player, player, 0] }, [], -97, false, false, "", "vehicle player == player && currentWeapon player == '' && primaryWeapon player != ''"],
 
-   	[format ["<img image='client\icons\playerMenu.paa' color='%1'/> <t color='%1'>[</t>Player Menu<t color='%1'>]</t>", "#FF8000"], "client\systems\playerMenu\init.sqf", [], -10, false], //, false, "", ""],
+	[format ["<img image='client\icons\playerMenu.paa' color='%1'/> <t color='%1'>[</t>Player Menu<t color='%1'>]</t>", "#FF8000"], "client\systems\playerMenu\init.sqf", [], -98, false], //, false, "", ""],
 
 	["<img image='client\icons\money.paa'/> Pickup Money", "client\actions\pickupMoney.sqf", [], 1, false, false, "", "{_x getVariable ['owner', ''] != 'mission'} count (player nearEntities ['Land_Money_F', 5]) > 0"],
 
@@ -22,7 +22,7 @@
 	["<img image='client\icons\health.paa'/> Heal Self", "addons\scripts\healself.sqf", [], 1, false, false, "", "(damage player > 0.05) && ('FirstAidKit' in (items player))"],
 	["Resupply", "addons\scripts\resupply_actions.sqf", [], 51, false, false, "", "!isNull cursorTarget && alive cursorTarget && {{ cursorTarget isKindOf _x } count ['O_Heli_Transport_04_covered_F', 'O_Truck_03_device_F'] > 0 ;} && !(vehicle player == player) && (player distance cursortarget) < 15"],
 	
-	["<img image='client\icons\r3f_unlock.paa'/> Break in and hotwire", "addons\breakLock\breakLock.sqf", [cursorTarget], 1,false,false,"","!isNull cursorTarget && vehicle player == player && {{ cursorTarget isKindOf _x } count ['LandVehicle', 'Ship', 'Air'] > 0 ;} && cursorTarget getVariable ['ownerUID',''] != getPlayerUID player && locked cursorTarget >= 2 && cursorTarget distance player < 7 && ('ToolKit' in (items player))"],
+	["<img image='client\icons\r3f_unlock.paa'/> Break in and hotwire", "addons\breakLock\breakLock.sqf", [cursorTarget], 1,false,false,"","!isNull cursorTarget && vehicle player == player && {{ cursorTarget isKindOf _x } count ['LandVehicle', 'Ship', 'Air'] > 0 ;} && cursorTarget getVariable ['ownerUID',''] != getPlayerUID player && locked cursorTarget >= 2 && cursorTarget distance player < 7 && ('ToolKit' in (items player)) && isNil {cursorTarget getVariable 'A3W_Truck'}"],
 	
 	["[0]"] call getPushPlaneAction,
 	["<img image='client\icons\push.paa'/> Push vehicle", "server\functions\pushVehicle.sqf", [2.5, true], 1, false, false, "", "[2.5] call canPushVehicleOnFoot"],
