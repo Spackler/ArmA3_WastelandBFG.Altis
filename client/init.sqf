@@ -26,6 +26,9 @@ groupManagmentActive = false;
 pvar_PlayerTeamKiller = objNull;
 doCancelAction = false;
 
+//AJ Beacondetector
+BeaconScanInProgress = false;
+
 //GoT Variables
 firstspawn = 1;
 //Initialization Variables

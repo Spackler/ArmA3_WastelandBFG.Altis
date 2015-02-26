@@ -9,7 +9,7 @@ sleep 60;
 
 _role1 = "Bravo Foxtrot Gaming";
 _role1names = ["BFG A3Wasteland Altis v1.1"];
-_role2 = "Website/Forums";
+_role2 = "Website/Forums/Player Stats";
 _role2names = ["www.BravoFoxtrotGaming.com"];
 _role3 = "Suggested Mods";
 _role3names = ["JSRS3:DragonFyre, Blastcore-A3, CBA_A3, VTS Weapon Resting"];
