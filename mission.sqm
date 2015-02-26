@@ -21402,7 +21402,7 @@ class Mission
 			lock="LOCKED";
 			skill=0.60000002;
 			text="Service_Truck_1";
-			init="this call A3W_fnc_setupresupply_actions";
+			init="this call A3W_fnc_setupResupplyTruck";
 			description="Service";
 		};
 		class Item1818
@@ -21417,7 +21417,7 @@ class Mission
 			lock="LOCKED";
 			skill=0.60000002;
 			text="Service_Truck_2";
-			init="this call A3W_fnc_setupresupply_actions";
+			init="this call A3W_fnc_setupResupplyTruck";
 			description="Service";
 		};
 		class Item1819
@@ -21432,7 +21432,7 @@ class Mission
 			lock="LOCKED";
 			skill=0.60000002;
 			text="Service_Truck_4";
-			init="this call A3W_fnc_setupresupply_actions";
+			init="this call A3W_fnc_setupResupplyTruck";
 			description="Service";
 		};
 		class Item1820
@@ -21447,7 +21447,7 @@ class Mission
 			lock="LOCKED";
 			skill=0.60000002;
 			text="Service_Truck_3";
-			init="this call A3W_fnc_setupresupply_actions";
+			init="this call A3W_fnc_setupResupplyTruck";
 			description="Service";
 		};
 		class Item1821
@@ -21462,7 +21462,7 @@ class Mission
 			lock="LOCKED";
 			skill=0.60000002;
 			text="Service_Truck_6";
-			init="this call A3W_fnc_setupresupply_actions";
+			init="this call A3W_fnc_setupResupplyTruck";
 			description="Service";
 		};
 		class Item1822
@@ -21477,7 +21477,7 @@ class Mission
 			lock="LOCKED";
 			skill=0.60000002;
 			text="Service_Truck_5";
-			init="this call A3W_fnc_setupresupply_actions";
+			init="this call A3W_fnc_setupResupplyTruck";
 			description="Service";
 		};
 		class Item1823
