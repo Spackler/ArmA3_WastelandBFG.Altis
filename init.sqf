@@ -83,7 +83,7 @@ if (isServer) then
 [] execVM "addons\outlw_magRepack\MagRepack_init_sv.sqf";
 [] execVM "addons\JTS_PM\Functions.sqf";
 [] execVM "addons\scripts\zlt_fastrope.sqf";
-[] execVM "addons\scripts\resupply_actions.sqf";
+//[] execVM "addons\scripts\resupply_actions.sqf";
 
 //Spckler, Init 3rd party Scripts
 [] execVM "addons\scripts\intro.sqf";									// Show intro text

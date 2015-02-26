@@ -211,22 +211,9 @@ sh_isUAV_UGV = {
 };
 
 sh_isUAV = {
-  ARGV2(0,_arg);
-
-  def(_class);
-  if (isOBJECT(_arg)) then {
-    _class = typeOf _arg;
-  }
-  else { if (isSTRING(_arg)) then {
-    _class = _arg;
-  }};
-
-  if (isNil "_class") exitWith {false};
-
-  (_class isKindOf "UAV_02_base_F" || {_class isKindOf "UAV_01_base_F"})
+ ARGVX4(0,_obj,objNull,false);
+  (_obj isKindOf "UAV_02_base_F" || {_obj isKindOf "UAV_01_base_F"})
 };
-
-
 sh_getVehicleTurrets = {
   def(_default);
   _default = [nil,nil,nil];
@@ -472,16 +459,13 @@ sh_fsm_invoke = {
 };
 
 sh_isFlying = {
-  ARGV2(0,_arg);
-
-  init(_flying_height,20);
-
+ ARGV2(0,_arg);
   if (isOBJECT(_arg)) exitWith {
-    (!isTouchingGround _arg && (getPos _arg) select 2 > _flying_height)
+    (!isTouchingGround _arg && (getPos _arg) select 2 > 50)
   };
 
   if (isPOS(_arg)) exitWith {
-   (_arg select 2 > _flying_height)
+   (_arg select 2 > 50)
   };
 
   false

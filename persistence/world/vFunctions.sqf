@@ -143,7 +143,7 @@ v_restoreVehicle = {
   };
 
   // disables thermal equipment on loaded vehicles, comment out if you want thermal
-  _obj disableTIEquipment true;
+  _obj disableTIEquipment false;
 
   //override the lock-state for vehicles form this this
   if ({_obj isKindOf _x} count A3W_locked_vehicles_list > 0) then {
@@ -479,16 +479,8 @@ v_getSavePosition = {
   _pos = ASLtoATL getPosWorld _obj;
   _pos set [2, (_pos select 2) + 0.3];
 
- def(_on_ground);
-  _on_ground = isTouchingGround _obj;
-
-  def(_flying);
-  _flying = [_obj] call sh_isFlying;
-
-  //diag_log format["_flying = %1, _on_ground = %2", _flying, _on_ground];
-
-  if ([_obj] call sh_isUAV && {_flying}) exitWith {_pos}; //save flying UAVs as-is
-  if (_on_ground) exitWith {_pos}; //directly in contact with ground, or on a roof
+  if ([_obj] call sh_isUAV_UGV) exitWith {_pos}; //no special processing for UAVs
+  if (isTouchingGround _obj) exitWith {_pos}; //directly in contact with ground, or on a roof
   if ((getPos _obj) select 2 < 0.5) exitWith {_pos}; //FIXME: not exactly sure what this one is for
   if ((getPosASL _obj) select 2 < 0.5) exitWith {_pos}; //underwater
 

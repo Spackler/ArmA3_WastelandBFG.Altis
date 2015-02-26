@@ -315,7 +315,7 @@ class MagRepack_Dialog_Main
 			
 			class Attributes
 			{
-				font = "TahomaB";
+				font = "PuristaMedium";
 				align = "center";
 			};
 			
@@ -340,7 +340,7 @@ class MagRepack_Dialog_Main
 			
 			class Attributes
 			{
-				font = "TahomaB";
+				font = "PuristaMedium";
 				align = "center";
 			};
 			
