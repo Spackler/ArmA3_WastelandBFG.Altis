@@ -15,7 +15,7 @@ pp_retrieve_wait = 0;
 pp_retrieve_cost = 0;
 
 //maximum number of vehicles that a player can park (0 = no limit)
-pp_max_player_vehicles = 0;
+pp_max_player_vehicles = 5;
 
 //List of class names for vehicles that are not allowed to be parked
 pp_disallowed_vehicle_classes = [];
