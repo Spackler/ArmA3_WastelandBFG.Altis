@@ -40,7 +40,7 @@ gearLevel4 =
 // gearLevel5
 gearLevel5 = 
 [
-"76561198157267445" // FohoGaming
+//"76561198157267445" // FohoGaming
 ];
 
 // gearLevel6
@@ -52,8 +52,8 @@ gearLevel6 =
 // gearLevel7
 gearLevel7 = 
 [
-"76561198158790751", // xCRO3x
-"76561198156367625" // Snipermunyshotz
+//"76561198158790751", // xCRO3x
+//"76561198156367625" // Snipermunyshotz
 ];
 
 // gearLevel8
@@ -66,11 +66,11 @@ gearLevel8 =
 gearLevel9 = 
 [
 //"76561198086245178", // Spackler
-"76561198168475868" // RUDonkeyKong
+//"76561198168475868" // RUDonkeyKong
 ];
 
 // gearLevel10
 gearLevel10 = 
 [
-"76561197960571617" // JaxChris
+//"76561197960571617" // JaxChris
 ];

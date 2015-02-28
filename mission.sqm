@@ -23198,7 +23198,7 @@ class Mission
 		{
 			position[]={12023.087,-0.047544695,25010.518};
 			name="rent";
-			text="BASES BY DONATION: Coming Soon";
+			text="BASES BY DONATION: $10 per month";
 			type="mil_box";
 			colorName="ColorWEST";
 			angle=-270;
