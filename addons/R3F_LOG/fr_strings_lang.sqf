@@ -11,6 +11,7 @@
 STR_R3F_LOG_action_heliporter = "Heliporter l'objet";
 STR_R3F_LOG_action_heliporter_fait = "Objet ""%1"" accroché.";
 STR_R3F_LOG_action_heliport_larguer = "Larguer l'objet";
+STR_R3F_LOG_action_heliport_parachute = "Paradrop the object";
 STR_R3F_LOG_action_heliport_larguer_fait = "Objet ""%1"" largué.";
 STR_R3F_LOG_action_heliport_attente = "Accrochage... (%1)";
 STR_R3F_LOG_action_heliport_echec_attente = "Heliportage annulé ! Restez en stationnaire pendant l'accrochage.";
@@ -23,6 +24,8 @@ STR_R3F_LOG_action_aligner_horizon = "Ajuster de niveau";
 STR_R3F_LOG_action_tourner = "Pivoter (touches X / C)";
 STR_R3F_LOG_action_rapprocher = "Rapprocher (touches F / R)";
 STR_R3F_LOG_ne_pas_monter_dans_vehicule = "Vous ne pouvez pas monter dans un véhicule tant que vous déplacez cet objet !";
+STR_LOCK_OBJECT = "Lock this object";
+STR_UNLOCK_OBJECT = "Unlock this object";
 
 STR_R3F_LOG_action_charger_deplace = "Charger dans le véhicule";
 STR_R3F_LOG_action_selectionner_objet_charge = "Charger ""%1"" dans...";

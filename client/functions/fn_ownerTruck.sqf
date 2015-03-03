@@ -73,6 +73,7 @@ if (!local _vehicle) then
 	mutexScriptInProgress = false;
 };
 
+_started = true;
 if (_vehicle distance _truck > CHANGEOWNER_VEHICLE_DISTANCE || vehicle _unit != _vehicle) then
 {
 	if (_started) then { ["Change ownership aborted", 5] call mf_notify_client };
@@ -137,6 +138,8 @@ if (!isNil "_price") then
 		_text = format ["%1 Is now yours to lock and it saves too. It is also fully repaired and refuelled.", _vehClass];
 		[_text, 10] call mf_notify_client;
 		mutexScriptInProgress = false;
+	} else {
+	mutexScriptInProgress = false;
 	};
 } else {
 	hint parseText "<t color='#ffff00'>An unknown error occurred.</t><br/>Cancelled.";
